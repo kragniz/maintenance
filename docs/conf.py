@@ -12,5 +12,5 @@ exclude_patterns = ['_build']
 
 # Project information
 project = u'Maintenance'
-copyright = u'2014, Sam Clements <sam@borntyping.co.uk>'
+copyright = u'2014, Sam Clements'
 version = release = '0.0.0'
