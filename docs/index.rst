@@ -6,4 +6,5 @@ These are notes on maintaining the various open-source projects I distribute - w
 .. toctree::
     :includehidden:
 
+    deployment
     python/index

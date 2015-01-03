@@ -17,14 +17,30 @@ Maintenance
 
 Documentation on maintaining my open-source projects. Most of this will probably cover Python packaging.
 
+Setup
+-----
+
+Install Sphinx into a dedicated virtualenv::
+
+    mkvirtualenv maintainance
+    pip install -r requirements.txt
+
 Building
 --------
 
-::
+Run Sphinx on the documentation::
 
-    pip install -r requirements.txt     # Install required Python packages
-    sphinx-build docs docs/_build       # Build the documentation with Sphinx
-    xdg-open docs/_build/index.html     # Open the documentation in your browser
+    sphinx-build docs docs/_build
+
+Open the index using your browser::
+
+    xdg-open docs/_build/index.html
+
+Rebuild the documenation when files are changed (requires `watch-fs`_)::
+
+    watch-fs 'sphinx-build docs docs/_build'
+
+.. _`watch-fs`: https://github.com/borntyping/watch-fs
 
 Licence
 -------
