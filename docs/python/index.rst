@@ -1,7 +1,10 @@
 Python
-======
+^^^^^^
 
-.. _python-packaging:
+.. toctree::
+    :hidden:
+
+    checklist
 
 Packaging
 ---------
