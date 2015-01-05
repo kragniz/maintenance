@@ -40,6 +40,38 @@ In the unusual case that a package supplies metadata depending on which Python v
     python3 setup.py bdist_wheel
     twine upload dist/*
 
+Readme
+------
+
+It's often useful for the README file to include various badges describing the project's status. This block include's the version and licence from PyPi_, the build status from `Travis-CI`_, a link to the project's documentation on `Read The Docs`_, and the number of open GitHub_ issues.
+
+.. code:: rst
+
+    .. image:: http://img.shields.io/pypi/v/NAME.svg?style=flat-square
+        :target: https://pypi.python.org/pypi/NAME
+        :alt: NAME on PyPI
+
+    .. image:: http://img.shields.io/pypi/l/NAME.svg?style=flat-square
+        :target: https://pypi.python.org/pypi/NAME
+        :alt: NAME on PyPI
+
+    .. image:: https://readthedocs.org/projects/NAME/badge/?version=latest&style=flat-square
+        :target: http://NAME.readthedocs.org/en/latest/
+        :alt: Documentation for NAME on Read The Docs
+
+    .. image:: http://img.shields.io/travis/borntyping/NAME/master.svg?style=flat-square
+        :target: https://travis-ci.org/borntyping/NAME
+        :alt: Travis-CI build status for NAME
+
+    .. image:: https://img.shields.io/github/issues/borntyping/NAME.svg?style=flat
+        :target: https://github.com/borntyping/NAME/issues
+        :alt: GitHub issues for NAME
+
+.. _PyPI: https://pypi.python.org/pypi/
+.. _`Travis-CI`: https://travis-ci.org/
+.. _`Read The Docs`: https://readthedocs.org/
+.. _GitHub:  https://github.com/
+
 Testing
 -------
 

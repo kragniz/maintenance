@@ -1,6 +1,10 @@
 Maintenance
 ===========
 
+.. image:: https://img.shields.io/badge/licence-CC--BY--SA-green.svg?style=flat
+    :target: https://github.com/borntyping/maintenance/blob/master/README.rst
+    :alt: Creative Commons Attribution-ShareAlike 4.0 International License
+
 .. image:: https://readthedocs.org/projects/maintenance/badge/?version=latest&style=flat
     :target: http://maintenance.readthedocs.org/en/latest/
     :alt: Documentation Status
@@ -8,10 +12,6 @@ Maintenance
 .. image:: https://img.shields.io/github/issues/borntyping/maintenance.svg?style=flat
     :target: https://github.com/borntyping/maintenance/issues
     :alt: GitHub issues
-
-.. image:: https://img.shields.io/badge/licence-CC--BY--SA-green.svg?style=flat
-    :target: https://github.com/borntyping/maintenance/blob/master/README.rst
-    :alt: Creative Commons Attribution-ShareAlike 4.0 International License
 
 |
 
