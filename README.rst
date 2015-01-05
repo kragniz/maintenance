@@ -20,15 +20,14 @@ Documentation on maintaining my open-source projects. Most of this will probably
 Setup
 -----
 
-Install Sphinx into a dedicated virtualenv::
+Install Sphinx_::
 
-    mkvirtualenv maintainance
-    pip install -r requirements.txt
+    pip install --user -r requirements.txt
 
 Building
 --------
 
-Run Sphinx on the documentation::
+Run Sphinx_ on the documentation::
 
     sphinx-build docs docs/_build
 
@@ -56,5 +55,6 @@ Author
 
 Written and maintained by `Sam Clements <https://github.com/borntyping>`_.
 
+.. _Sphinx: http://sphinx-doc.org/
 .. |cc-by-sa| replace:: Creative Commons Attribution-ShareAlike 4.0 International License
 .. _cc-by-sa: http://creativecommons.org/licenses/by-sa/4.0/
