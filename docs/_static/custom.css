@@ -1,7 +1,10 @@
 /* Make tables full width */
 table {
     width: 100%;
-    overflow: hidden;
-    overflow-y:hidden;
-    overflow-x:hidden;
+}
+
+@media screen and (max-width: 768px) {
+    img {
+        width: auto !important;
+    }
 }
