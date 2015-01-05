@@ -125,7 +125,7 @@ class PythonPackage(Package):
             }
 
 
-class PackagesDirective(sphinx.util.compat.Directive):
+class PackageTableDirective(sphinx.util.compat.Directive):
     has_content = True
 
     def run(self):
@@ -134,7 +134,6 @@ class PackagesDirective(sphinx.util.compat.Directive):
             body=[PythonPackage.from_line(l).export() for l in self.content],
         )]
 
-
 def setup(app):
-    app.add_directive('packages', PackagesDirective)
+    app.add_directive('package-table', PackageTableDirective)
     return

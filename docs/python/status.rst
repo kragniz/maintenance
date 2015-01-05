@@ -1,24 +1,22 @@
 Package status
 ==============
 
-.. packages::
+.. package-table::
 
-    Aleph
-    argumented
-    clack
-    colorlog
-    cookiecutter-pypackage-minimal
-    dice
+    argumented repo=borntyping/python-argumented
+    clack repo=borntyping/python-clack
+    colorlog repo=borntyping/python-colorlog
+    dice repo=borntyping/python-dice
     diceroll
-    infix
+    infix repo=borntyping/python-infix
     mannhunter docs=rtd
-    miranda
     riemann-client docs=rtd repo=borntyping/python-riemann-client
     sous-chef
     spotter
     ssh-run
     supermann docs=rtd
-    tentd
     v
     watch-fs
-    zap
+
+Package details
+===============
