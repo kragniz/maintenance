@@ -1,9 +1,6 @@
 Package status
 ==============
 
-.. package:: argumented
-    :repo: borntyping/python-argumented
-
 .. package:: clack
     :repo: borntyping/python-clack
 
@@ -13,29 +10,37 @@ Package status
 .. package:: dice
     :repo: borntyping/python-dice
 
+.. package:: mannhunter
+    :docs: mannhunter
+
+.. package:: riemann-client
+    :repo: borntyping/python-riemann-client
+    :docs: riemann-client
+
+.. package:: sous-chef
+
+.. package:: ssh-run
+
+.. package:: supermann
+    :docs: supermann
+
+.. package:: v
+
+.. package:: watch-fs
+
+.. package-status::
+
+Deprecated packages
+-------------------
+
+.. package:: argumented
+    :repo: borntyping/python-argumented
+
 .. package:: diceroll
 
 .. package:: infix
     :repo: borntyping/python-infix
 
-.. package:: mannhunter
-    :docs: rtd
-
-.. package:: riemann-client
-    :repo: borntyping/python-riemann-client
-    :docs: rtd
-
-.. package:: sous-chef
-
 .. package:: spotter
-
-.. package:: ssh-run
-
-.. package:: supermann
-    :docs: rtd
-
-.. package:: v
-
-.. package:: watch-fs
 
 .. package-status::

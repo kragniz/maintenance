@@ -13,6 +13,14 @@ if not os.environ.get('READTHEDOCS', None):
     html_theme = 'sphinx_rtd_theme'
     html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
+# Add some CSS in to make tables nicer
+html_static_path = ['_static']
+html_context = {
+    'css_files': [
+        '_static/theme.css'
+    ],
+}
+
 # General configuration
 master_doc = 'index'
 exclude_patterns = ['_build']

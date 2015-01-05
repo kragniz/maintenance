@@ -55,7 +55,7 @@ class PythonPackage(Package):
     def __init__(self, name, options):
         super(PythonPackage, self).__init__(name, options)
         self.options.setdefault('repo', 'borntyping/{}'.format(name))
-        self.options.setdefault('docs', 'none')
+        self.options.setdefault('docs', None)
 
     @link
     def package(self):
@@ -103,24 +103,19 @@ class PythonPackage(Package):
 
     @badge
     def documentation(self):
-        if self.options['docs'] == 'rtd':
+        if self.options['docs'] is not None:
             return {
-                'img': 'https://readthedocs.org/projects/{name}/badge/'
-                       '?version=latest&style=flat-square',
+                # 'img': 'https://readthedocs.org/projects/{name}/badge/'
+                #        '?version=latest&style=flat-square',
+                'img': 'http://img.shields.io/badge/docs-latest-brightgreen.svg',
                 'url': 'http://{name}.readthedocs.org/en/latest/',
                 'alt': 'Documentation for package {name} on Read The Docs'
             }
-        elif self.options['docs'] == 'none':
+        else:
             return {
                 'img': 'http://img.shields.io/badge/docs-none-lightgrey.svg',
                 'url': '#',
                 'alt': 'No documentation availible for package {name}'
-            }
-        else:
-            return {
-                'img': 'http://img.shields.io/badge/docs-link-yellow.svg',
-                'url': self.options['docs'],
-                'alt': 'Documentation for package {name}'
             }
 
 
@@ -138,11 +133,10 @@ class PackageDirective(docutils.parsers.rst.Directive):
         return []
 
 
-class PackageTableDirective(docutils.parsers.rst.Directive):
+class PackageStatusDirective(docutils.parsers.rst.Directive):
     columns = (
         ('Package', 'package'),
         ('Version', 'version'),
-        ('Licence', 'licence'),
         ('GitHub Issues', 'issues'),
         ('CI status', 'travis'),
         ('Documentation', 'documentation')
@@ -155,36 +149,15 @@ class PackageTableDirective(docutils.parsers.rst.Directive):
         return [getattr(package, v)() for k, v in self.columns]
 
     def run(self):
-        return [table.table(
+        global loaded_packages
+        status = table.table(
             head=self.export_headers(),
             body=map(self.export_package, loaded_packages)
-        )]
-
-
-# class PackageDetailsDirective(docutils.parsers.rst.Directive):
-#     def export_package(self, package):
-#         section = docutils.nodes.section(ids=[package.name])
-#         section.append(docutils.nodes.title(text=package.name))
-
-#         badges = docutils.nodes.paragraph()
-#         for attr in ('version', 'licence', 'issues', 'documentation'):
-#             badges.append(getattr(package, attr)())
-#         section.append(badges)
-
-#         links = docutils.nodes. bullet_list()
-#         for attr in ('github_link', 'github_issues', 'documentation_link'):
-#             link = getattr(package, attr)()
-#             links.append(docutils.nodes.list_item('', link))
-#         section.append(links)
-
-#         return section
-
-#     def run(self):
-#         global loaded_packages
-#         return [self.export_package(package) for package in loaded_packages]
+        )
+        loaded_packages = []
+        return [status]
 
 
 def setup(app):
     app.add_directive('package', PackageDirective)
-    app.add_directive('package-status', PackageTableDirective)
-    # app.add_directive('package-details', PackageDetailsDirective)
+    app.add_directive('package-status', PackageStatusDirective)
