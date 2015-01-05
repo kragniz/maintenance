@@ -41,6 +41,17 @@ Rebuild the documenation when files are changed (requires `watch-fs`_)::
 
 .. _`watch-fs`: https://github.com/borntyping/watch-fs
 
+Style
+-----
+
+Use code blocks marked with the language where possible:
+
+.. code:: rst
+
+    .. code:: bash
+
+        function error() { exit 1; }
+
 Licence
 -------
 
