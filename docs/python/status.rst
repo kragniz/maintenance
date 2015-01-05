@@ -1,22 +1,41 @@
 Package status
 ==============
 
-.. package-table::
+.. package:: argumented
+    :repo: borntyping/python-argumented
 
-    argumented repo=borntyping/python-argumented
-    clack repo=borntyping/python-clack
-    colorlog repo=borntyping/python-colorlog
-    dice repo=borntyping/python-dice
-    diceroll
-    infix repo=borntyping/python-infix
-    mannhunter docs=rtd
-    riemann-client docs=rtd repo=borntyping/python-riemann-client
-    sous-chef
-    spotter
-    ssh-run
-    supermann docs=rtd
-    v
-    watch-fs
+.. package:: clack
+    :repo: borntyping/python-clack
 
-Package details
-===============
+.. package:: colorlog
+    :repo: borntyping/python-colorlog
+
+.. package:: dice
+    :repo: borntyping/python-dice
+
+.. package:: diceroll
+
+.. package:: infix
+    :repo: borntyping/python-infix
+
+.. package:: mannhunter
+    :docs: rtd
+
+.. package:: riemann-client
+    :repo: borntyping/python-riemann-client
+    :docs: rtd
+
+.. package:: sous-chef
+
+.. package:: spotter
+
+.. package:: ssh-run
+
+.. package:: supermann
+    :docs: rtd
+
+.. package:: v
+
+.. package:: watch-fs
+
+.. package-status::

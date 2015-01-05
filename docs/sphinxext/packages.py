@@ -3,19 +3,21 @@
 import functools
 
 import docutils.nodes
-import sphinx.util.compat
+import docutils.parsers.rst
 
-# import shields
 import table
+
+
+loaded_packages = []
 
 
 def badge(function):
     @functools.wraps(function)
-    def wrapper(self, *args, **kwargs):
-        info = function(self, *args, **kwargs)
+    def wrapper(package, *args, **kwargs):
+        info = function(package, *args, **kwargs)
 
         for k, v in info.items():
-            info[k] = v.format(name=self.name, **self.options)
+            info[k] = v.format(name=package.name, **package.options)
 
         if 'img.shields.io' in info['img']:
             info['img'] += '?style=flat-square'
@@ -25,13 +27,20 @@ def badge(function):
     return wrapper
 
 
+def link(function):
+    @functools.wraps(function)
+    def wrapper(package, *args, **kwargs):
+        text, url = function(package, *args, **kwargs)
+
+        text = text.format(name=package.name, **package.options)
+        url = url.format(name=package.name, **package.options)
+
+        link = docutils.nodes.reference(text=text, refuri=url)
+        return docutils.nodes.paragraph('', '', link)
+    return wrapper
+
+
 class Package(object):
-    columns = ()
-
-    @classmethod
-    def create_row(cls, line):
-        return cls.from_line(line).export()
-
     @classmethod
     def from_line(cls, line):
         info = line.split()
@@ -40,27 +49,25 @@ class Package(object):
     def __init__(self, name, options):
         self.name = name
         self.options = options
-        self.options.setdefault('repo', 'borntyping/{}'.format(name))
-        self.options.setdefault('licence', 'none')
-        self.options.setdefault('docs', 'none')
-
-    def export(self):
-        return [getattr(self, v)() for k, v in self.columns]
 
 
 class PythonPackage(Package):
-    columns = (
-        ('Package', 'link'),
-        ('Version', 'version'),
-        ('Licence', 'licence'),
-        ('GitHub Issues', 'issues'),
-        ('Documentation', 'documentation')
-    )
+    def __init__(self, name, options):
+        super(PythonPackage, self).__init__(name, options)
+        self.options.setdefault('repo', 'borntyping/{}'.format(name))
+        self.options.setdefault('docs', 'none')
 
-    def link(self):
-        return docutils.nodes.paragraph('', '', docutils.nodes.reference(
-            text=self.name,
-            refuri='https://github.com/{repo}'.format(**self.options)))
+    @link
+    def package(self):
+        return self.name, 'https://github.com/{repo}'
+
+    # @link
+    # def github_link(self):
+    #     return ('GitHub repository', 'https://github.com/{repo}')
+
+    # @link
+    # def github_issues(self):
+    #     return ('Issue tracker', 'https://github.com/{repo}/issues')
 
     @badge
     def issues(self):
@@ -71,19 +78,11 @@ class PythonPackage(Package):
         }
 
     @badge
-    def licence(self):
-        if self.options['licence'] == 'MIT':
-            color = 'brightgreen'
-        elif self.options['licence'] == 'none':
-            color = 'red'
-        else:
-            color = 'yellowgreen'
-
+    def travis(self):
         return {
-            'img': 'http://img.shields.io/badge/licence-{}-{}.svg'.format(
-                self.options['licence'], color),
-            'url': 'https://github.com/{repo}/blob/master/licence',
-            'alt': 'Licence for package {name}'
+            'img': 'http://img.shields.io/travis/{repo}.svg',
+            'url': 'https://travis-ci.org/{repo}',
+            'alt': 'Continuous integration status for {repo}'
         }
 
     @badge
@@ -113,7 +112,7 @@ class PythonPackage(Package):
             }
         elif self.options['docs'] == 'none':
             return {
-                'img': 'http://img.shields.io/badge/docs-none-red.svg',
+                'img': 'http://img.shields.io/badge/docs-none-lightgrey.svg',
                 'url': '#',
                 'alt': 'No documentation availible for package {name}'
             }
@@ -125,15 +124,67 @@ class PythonPackage(Package):
             }
 
 
-class PackageTableDirective(sphinx.util.compat.Directive):
-    has_content = True
+class PackageDirective(docutils.parsers.rst.Directive):
+    required_arguments = 1
+    option_spec = {
+        'repo': lambda x: x,
+        'docs': lambda x: x
+    }
+
+    def run(self):
+        global loaded_packages
+        package = PythonPackage(self.arguments[0].strip(), self.options)
+        loaded_packages.append(package)
+        return []
+
+
+class PackageTableDirective(docutils.parsers.rst.Directive):
+    columns = (
+        ('Package', 'package'),
+        ('Version', 'version'),
+        ('Licence', 'licence'),
+        ('GitHub Issues', 'issues'),
+        ('CI status', 'travis'),
+        ('Documentation', 'documentation')
+    )
+
+    def export_headers(self):
+        return [k for k, v in self.columns]
+
+    def export_package(self, package):
+        return [getattr(package, v)() for k, v in self.columns]
 
     def run(self):
         return [table.table(
-            head=[k for k, v in PythonPackage.columns],
-            body=[PythonPackage.from_line(l).export() for l in self.content],
+            head=self.export_headers(),
+            body=map(self.export_package, loaded_packages)
         )]
 
+
+# class PackageDetailsDirective(docutils.parsers.rst.Directive):
+#     def export_package(self, package):
+#         section = docutils.nodes.section(ids=[package.name])
+#         section.append(docutils.nodes.title(text=package.name))
+
+#         badges = docutils.nodes.paragraph()
+#         for attr in ('version', 'licence', 'issues', 'documentation'):
+#             badges.append(getattr(package, attr)())
+#         section.append(badges)
+
+#         links = docutils.nodes. bullet_list()
+#         for attr in ('github_link', 'github_issues', 'documentation_link'):
+#             link = getattr(package, attr)()
+#             links.append(docutils.nodes.list_item('', link))
+#         section.append(links)
+
+#         return section
+
+#     def run(self):
+#         global loaded_packages
+#         return [self.export_package(package) for package in loaded_packages]
+
+
 def setup(app):
-    app.add_directive('package-table', PackageTableDirective)
-    return
+    app.add_directive('package', PackageDirective)
+    app.add_directive('package-status', PackageTableDirective)
+    # app.add_directive('package-details', PackageDetailsDirective)
