@@ -1,13 +1,18 @@
 Python
 ======
 
-.. toctree::
-    :hidden:
+.. _python-packaging:
 
 Packaging
 ---------
 
 The `Python Packaging User Guide <https://packaging.python.org/en/latest/>`_ has excellent guidance on packaging Python projects - in particular, use the information on `packaging and distributing projects <https://packaging.python.org/en/latest/distributing.html>`_, and the `suggested tools <https://packaging.python.org/en/latest/current.html>`_.
+
+A new python package can be registered to PyPI with:
+
+.. code:: bash
+
+    python setup.py register
 
 Python packages can generally be released with:
 
