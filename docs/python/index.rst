@@ -63,7 +63,7 @@ It's often useful for the README file to include various badges describing the p
         :target: https://travis-ci.org/borntyping/NAME
         :alt: Travis-CI build status for NAME
 
-    .. image:: https://img.shields.io/github/issues/borntyping/NAME.svg?style=flat
+    .. image:: https://img.shields.io/github/issues/borntyping/NAME.svg?style=flat-square
         :target: https://github.com/borntyping/NAME/issues
         :alt: GitHub issues for NAME
 

@@ -9,7 +9,7 @@ Maintenance
     :target: http://maintenance.readthedocs.org/en/latest/
     :alt: Documentation Status
 
-.. image:: https://img.shields.io/github/issues/borntyping/maintenance.svg?style=flat
+.. image:: https://img.shields.io/github/issues/borntyping/maintenance.svg?style=flat-square
     :target: https://github.com/borntyping/maintenance/issues
     :alt: GitHub issues
 
