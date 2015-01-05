@@ -37,7 +37,7 @@ Open the index using your browser::
 
 Rebuild the documenation when files are changed (requires `watch-fs`_)::
 
-    watch-fs 'sphinx-build docs docs/_build'
+    watch-fs -d docs 'sphinx-build -E docs docs/_build'
 
 .. _`watch-fs`: https://github.com/borntyping/watch-fs
 

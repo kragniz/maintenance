@@ -5,6 +5,7 @@ Python
     :hidden:
 
     checklist
+    status
 
 Packaging
 ---------

@@ -1,5 +1,5 @@
-Python checklist
-================
+Checklist
+=========
 
 Creating a new project
 ----------------------
