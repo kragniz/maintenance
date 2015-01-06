@@ -1,7 +1,7 @@
-Checklist
-=========
+Packaging Checklist
+===================
 
-Creating a new project
+Creating a new package
 ----------------------
 
 Package metadata
@@ -26,7 +26,7 @@ Tag release
     |git-tag-version|_ *or* ``git tag -a "v0.1.0" -m "Version 0.1.0"``
 
 Package upload
-    ``python setup.py sdist bdist_wheel upload``
+    ``tox -e release`` or ``python setup.py sdist bdist_wheel upload``
 
 .. |git-tag-version| replace:: ``git-tag-version``
 .. _git-tag-version: https://github.com/borntyping/deployment/blob/master/roles/base/files/git-tag-version
