@@ -22,8 +22,10 @@ def badge(function):
         if 'img.shields.io' in info['img']:
             info['img'] += '?style=flat-square'
 
-        return docutils.nodes.image(
-            uri=info['img'], target=info['url'], alt=info['alt'])
+        # Wraps the image in a link
+        ref = docutils.nodes.reference(refuri=info['url'])
+        ref.append(docutils.nodes.image(uri=info['img'], alt=info['alt']))
+        return ref
     return wrapper
 
 

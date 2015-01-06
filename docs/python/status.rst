@@ -1,4 +1,4 @@
-Package status
+Package Status
 ==============
 
 .. package:: clack
