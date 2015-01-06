@@ -21,6 +21,20 @@ A basic ``tox.ini`` file to use pytest should look like this:
     commands=py.test -v {posargs} <MODULE>
     deps=pytest
 
+Configuring `Travis-CI`_ to run Tox properly is slightly verbose, but means local and remote tests run in an almost identical fashion. The ``.travis.yml`` file should include each tox environment in it's matrix:
+
+.. code:: yaml
+
+    language: python
+    env:
+      - TOXENV=py26
+      - TOXENV=py27
+      - TOXENV=py33
+      - TOXENV=py34
+    install:
+      - pip install tox
+    script:
+      - tox
 
 Style checking
 ~~~~~~~~~~~~~~

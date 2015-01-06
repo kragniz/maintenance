@@ -43,6 +43,8 @@ Tox can be used to automate package releases, by including a test environment th
 Readme
 ------
 
+.. note:: Check that the README is valid with ``rst-lint README.rst``
+
 It's often useful for the README file to include various badges describing the project's status. This block include's the version and licence from PyPi_, the build status from `Travis-CI`_, a link to the project's documentation on `Read The Docs`_, and the number of open GitHub_ issues.
 
 .. code:: rst
@@ -74,6 +76,7 @@ A list of links to the package source, documenation and packages are useful, esp
     * `Source on GitHub <https://github.com/borntyping/NAME>`_
     * `Documentation on Read the Docs <http://NAME.readthedocs.org/en/latest/>`_
     * `Packages on PyPI <https://pypi.python.org/pypi/NAME>`_
+    * `Builds on Travis CI <https://travis-ci.org/borntyping/NAME>`_
 
 .. _PyPI: https://pypi.python.org/pypi/
 .. _`Travis-CI`: https://travis-ci.org/
