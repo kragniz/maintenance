@@ -51,8 +51,9 @@ Use flake8_ to run style checks, which collects pyflakes_, pep8_ and mccabe_. Th
         flake8_docstrings
 
     [flake8]
-    ignore = D203
+    ignore = D102,D203
 
+* ``D102: Function docstring missing``
 * ``D203: Expected 1 blank line *before* class docstring, found 0``
 
 .. _tox: http://tox.readthedocs.org/
