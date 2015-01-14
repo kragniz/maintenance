@@ -8,3 +8,6 @@ table {
         width: auto !important;
     }
 }
+
+/* Syntax highlighting for YAML snippets */
+.l-Scalar-Plain { color: #008080; }
