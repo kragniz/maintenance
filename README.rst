@@ -17,27 +17,20 @@ Maintenance
 
 Documentation on maintaining my open-source projects. Most of this will probably cover Python packaging.
 
-Setup
------
-
-Install Sphinx_::
-
-    pip install --user -r requirements.txt
-
 Building
 --------
 
 Run Sphinx_ on the documentation::
 
-    sphinx-build docs docs/_build
+    tox -e build
 
 Open the index using your browser::
 
-    xdg-open docs/_build/index.html
+    tox -e open
 
 Rebuild the documenation when files are changed (requires `watch-fs`_)::
 
-    watch-fs -d docs 'sphinx-build -E docs docs/_build'
+    watch-fs -d docs 'tox -e build'
 
 .. _`watch-fs`: https://github.com/borntyping/watch-fs
 
