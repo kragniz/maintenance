@@ -2,7 +2,6 @@ Package Status
 ==============
 
 .. package:: clack
-    :repo: borntyping/python-clack
 
 .. package:: colorlog
     :repo: borntyping/python-colorlog
