@@ -36,7 +36,7 @@ Tox can be used to automate package releases, by including a test environment th
 .. code:: ini
 
     [testenv:release]
-    commands=python setup.py sdist bdist_wheel
+    commands=python setup.py sdist bdist_wheel upload
     skip_sdist=true
     deps=wheel
 
