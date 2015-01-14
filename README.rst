@@ -39,9 +39,9 @@ Style
 
 Use code blocks marked with the language where possible:
 
-.. code:: rst
+.. code-block:: rst
 
-    .. code:: bash
+    .. code-block:: bash
 
         function error() { exit 1; }
 
