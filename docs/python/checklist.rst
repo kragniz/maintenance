@@ -1,4 +1,4 @@
-Packaging Checklist
+Packaging checklist
 ===================
 
 Creating a new package

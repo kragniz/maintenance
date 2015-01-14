@@ -1,5 +1,5 @@
-Package Status
-==============
+Python package status
+=====================
 
 .. package:: clack
 

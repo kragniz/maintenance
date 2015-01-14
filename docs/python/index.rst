@@ -2,10 +2,7 @@ Python
 ^^^^^^
 
 .. toctree::
-    :hidden:
 
-    packaging
-    testing
-    checklist
-    status
-
+    Packaging <packaging>
+    Testing <testing>
+    Checklist <checklist>
