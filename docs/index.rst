@@ -14,6 +14,7 @@ Pages on specific languages or topics contain detailed information and explanati
     :includehidden:
     :titlesonly:
 
+    projects/index
     python/index
 
 Status pages list show the status of various external projects. Currently this only covers python projects, and includes open issues, build status and documenation status.

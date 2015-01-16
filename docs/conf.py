@@ -22,7 +22,7 @@ def setup(app):
 
 # General configuration
 master_doc = 'index'
-exclude_patterns = ['_build']
+exclude_patterns = ['_build', '*/examples/*']
 
 # Project information
 project = u'Maintenance'
