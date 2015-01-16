@@ -7,6 +7,7 @@ These are notes on maintaining the various open-source projects I distribute - w
     :includehidden:
 
     deployment
+    projects/index
 
 Pages on specific languages or topics contain detailed information and explanations. Checklist pages provide minimal notes on steps to take in a project or package's workflow.
 
@@ -14,7 +15,6 @@ Pages on specific languages or topics contain detailed information and explanati
     :includehidden:
     :titlesonly:
 
-    projects/index
     python/index
 
 Status pages list show the status of various external projects. Currently this only covers python projects, and includes open issues, build status and documenation status.
