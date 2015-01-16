@@ -4,7 +4,7 @@ env:
   - TOXENV=py27
   - TOXENV=py33
   - TOXENV=py34
-  - TOXENV=style
+  - TOXENV=lint
   - TOXENV=docs
 install:
   - pip install tox
@@ -12,6 +12,6 @@ script:
   - tox
 matrix:
   allow_failures:
-    - env: TOXENV=style
+    - env: TOXENV=lint
     - env: TOXENV=docs
 sudo: true

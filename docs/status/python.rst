@@ -32,8 +32,13 @@ Python package status
 Deprecated packages
 -------------------
 
+These packages are no longer actively maintained and generally have better alternatives.
+
 .. package:: argumented
     :repo: borntyping/python-argumented
+
+.. package:: csdl-unoffical
+    :repo: borntyping/python-csdl
 
 .. package:: diceroll
 

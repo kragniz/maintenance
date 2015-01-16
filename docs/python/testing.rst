@@ -22,10 +22,10 @@ Configuring `Travis-CI`_ to run Tox_ properly is slightly verbose, but means loc
     :language: yaml
     :end-before: matrix:
 
-Style checking
---------------
+Style and lint checking
+-----------------------
 
-Use flake8_ to run style checks, which collects pyflakes_, pep8_ and mccabe_. The `flake8-docstrings`_ module extends it to include pep257_. As it reads it's configuration from ``tox.ini``, it can be added to Tox very easily.
+Use flake8_ to run style and lint checks, which collects pyflakes_, pep8_ and mccabe_. The `flake8-docstrings`_ module extends it to include pep257_. As it reads it's configuration from ``tox.ini``, it can be added to Tox very easily.
 
 .. literalinclude:: examples/tox.ini
     :language: ini
