@@ -3,6 +3,15 @@ Projects
 
 This section contains general notes on publishing all open-source projects.
 
+Essentials
+----------
+
+All projects should have:
+
+* A known maintainer
+* Basic installation and usage instructions
+* A style guide assigned
+
 License
 -------
 
