@@ -17,10 +17,9 @@ Pages on specific languages or topics contain detailed information and explanati
 
     python/index
 
-Status pages list show the status of various external projects. Currently this only covers python projects, and includes open issues, build status and documenation status.
+The status page links to most of the open-source projects I have published and displays their current status. This includes number of open issues, build status and package information.
 
 .. toctree::
     :includehidden:
-    :titlesonly:
 
-    status/index
+    status

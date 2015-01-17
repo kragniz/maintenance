@@ -3,6 +3,14 @@ table {
     width: 100%;
 }
 
+/* Avoid flashing a scollbar when loading status tables */
+@media screen and (min-width: 768px) {
+    .wy-table-responsive {
+        overflow: hidden;
+    }
+}
+
+/* Avoid images looking strange on small screens */
 @media screen and (max-width: 768px) {
     img {
         width: auto !important;

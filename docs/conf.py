@@ -5,7 +5,7 @@ import os
 
 # Enable custom extensions
 sys.path.append(os.path.abspath('sphinxext'))
-extensions = ['packages']
+extensions = ['projects']
 
 # Use the Read The Docs theme when building offline
 if not os.environ.get('READTHEDOCS', None):

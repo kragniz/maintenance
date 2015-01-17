@@ -1,4 +1,4 @@
-"""Adds a Sphinx directive to generate a list of packages"""
+"""Adds a Sphinx directive to generate a list of projects"""
 
 import functools
 
@@ -42,7 +42,7 @@ def link(function):
     return wrapper
 
 
-class Package(object):
+class Project(object):
     @classmethod
     def from_line(cls, line):
         info = line.split()
@@ -51,28 +51,15 @@ class Package(object):
     def __init__(self, name, options):
         self.name = name
         self.options = options
-
-
-class PythonPackage(Package):
-    def __init__(self, name, options):
-        super(PythonPackage, self).__init__(name, options)
         self.options.setdefault('repo', 'borntyping/{}'.format(name))
         self.options.setdefault('docs', None)
 
     @link
-    def package(self):
+    def github_repo(self):
         return self.name, 'https://github.com/{repo}'
 
-    # @link
-    # def github_link(self):
-    #     return ('GitHub repository', 'https://github.com/{repo}')
-
-    # @link
-    # def github_issues(self):
-    #     return ('Issue tracker', 'https://github.com/{repo}/issues')
-
     @badge
-    def issues(self):
+    def github_issues(self):
         return {
             'img': 'https://img.shields.io/github/issues/{repo}.svg',
             'url': 'https://github.com/{repo}/issues',
@@ -80,7 +67,7 @@ class PythonPackage(Package):
         }
 
     @badge
-    def travis(self):
+    def travis_status(self):
         return {
             'img': 'https://img.shields.io/travis/{repo}.svg',
             'url': 'https://travis-ci.org/{repo}',
@@ -88,7 +75,7 @@ class PythonPackage(Package):
         }
 
     @badge
-    def version(self):
+    def pypi_version(self):
         return {
             'img': 'https://img.shields.io/pypi/v/{name}.svg',
             'url': 'https://warehouse.python.org/pypi/{name}/',
@@ -96,7 +83,7 @@ class PythonPackage(Package):
         }
 
     @badge
-    def licence(self):
+    def pypi_licence(self):
         return {
             'img': 'https://img.shields.io/pypi/l/{name}.svg',
             'url': 'https://warehouse.python.org/pypi/{name}/',
@@ -107,6 +94,7 @@ class PythonPackage(Package):
     def documentation(self):
         if self.options['docs'] is not None:
             return {
+                # The RTD badge tends to be very slow
                 # 'img': 'https://readthedocs.org/projects/{name}/badge/'
                 #        '?version=latest&style=flat-square',
                 'img': 'https://img.shields.io/badge/docs-latest-brightgreen.svg',
@@ -121,7 +109,53 @@ class PythonPackage(Package):
             }
 
 
-class PackageDirective(docutils.parsers.rst.Directive):
+class ProjectStatusList(docutils.parsers.rst.Directive):
+    """Exports a table of projects"""
+
+    # The optional argument is the project type
+    optional_arguments = 1
+
+    projects = []
+
+    @property
+    def project_type(self):
+        return self.arguments[0] if len(self.arguments) > 0 else 'default'
+
+    def columns(self):
+        return {
+            'default': (
+                ('Project', 'github_repo'),
+                ('GitHub Issues', 'github_issues'),
+                ('CI status', 'travis_status')
+            ),
+            'python': (
+                ('Package', 'github_repo'),
+                ('Version', 'pypi_version'),
+                ('GitHub Issues', 'github_issues'),
+                ('CI status', 'travis_status'),
+                ('Documentation', 'documentation')
+            )
+        }[self.project_type]
+
+    def export_headers(self):
+        return [k for k, v in self.columns()]
+
+    def export_project(self, project):
+        return [getattr(project, v)() for k, v in self.columns()]
+
+    def get_and_clear_projects(self):
+        projects = self.__class__.projects
+        self.__class__.projects = []
+        return projects
+
+    def run(self):
+        return [table.table(
+            head=self.export_headers(),
+            body=map(self.export_project, self.get_and_clear_projects())
+        )]
+
+
+class ProjectDirective(docutils.parsers.rst.Directive):
     required_arguments = 1
     option_spec = {
         'repo': lambda x: x,
@@ -129,37 +163,12 @@ class PackageDirective(docutils.parsers.rst.Directive):
     }
 
     def run(self):
-        global loaded_packages
-        package = PythonPackage(self.arguments[0].strip(), self.options)
-        loaded_packages.append(package)
+        """Append a project to the current status list and return nothing."""
+        ProjectStatusList.projects.append(
+            Project(self.arguments[0].strip(), self.options))
         return []
 
 
-class PackageStatusDirective(docutils.parsers.rst.Directive):
-    columns = (
-        ('Package', 'package'),
-        ('Version', 'version'),
-        ('GitHub Issues', 'issues'),
-        ('CI status', 'travis'),
-        ('Documentation', 'documentation')
-    )
-
-    def export_headers(self):
-        return [k for k, v in self.columns]
-
-    def export_package(self, package):
-        return [getattr(package, v)() for k, v in self.columns]
-
-    def run(self):
-        global loaded_packages
-        status = table.table(
-            head=self.export_headers(),
-            body=map(self.export_package, loaded_packages)
-        )
-        loaded_packages = []
-        return [status]
-
-
 def setup(app):
-    app.add_directive('package', PackageDirective)
-    app.add_directive('package-status', PackageStatusDirective)
+    app.add_directive('project', ProjectDirective)
+    app.add_directive('project-status', ProjectStatusList)
