@@ -51,13 +51,13 @@ A full Tox_ configuration file for a standard python package should run tests on
 .. literalinclude:: examples/travis.yml
     :language: yaml
 
-.. _Tox: http://tox.readthedocs.org/
-.. _Travis-CI: http://travis-ci.org/
+.. _Tox: https://tox.readthedocs.org/
+.. _Travis-CI: https://travis-ci.org/
 .. _pytest: http://pytest.org/latest/contents.html
 .. _mock: http://www.voidspace.org.uk/python/mock/
-.. _flake8: http://flake8.readthedocs.org/
+.. _flake8: https://flake8.readthedocs.org/
 .. _`flake8-docstrings`: https://bitbucket.org/icordasc/flake8-docstrings
 .. _pyflakes: https://github.com/pyflakes/pyflakes/
-.. _pep8: http://pep8.readthedocs.org/en/latest/
+.. _pep8: https://pep8.readthedocs.org/en/latest/
 .. _mccabe: http://nedbatchelder.com/blog/200803/python_code_complexity_microtool.html
 .. _pep257: https://github.com/GreenSteam/pep257

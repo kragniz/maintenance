@@ -2,7 +2,7 @@
 
 
 def shield(*args):
-    return 'http://img.shields.io/{args}.svg?style=flat-square'.format(
+    return 'https://img.shields.io/{args}.svg?style=flat-square'.format(
         args='/'.join(args))
 
 

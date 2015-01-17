@@ -74,7 +74,7 @@ class PythonPackage(Package):
     @badge
     def issues(self):
         return {
-            'img': 'http://img.shields.io/github/issues/{repo}.svg',
+            'img': 'https://img.shields.io/github/issues/{repo}.svg',
             'url': 'https://github.com/{repo}/issues',
             'alt': 'GitHub issue tracker for {repo}'
         }
@@ -82,7 +82,7 @@ class PythonPackage(Package):
     @badge
     def travis(self):
         return {
-            'img': 'http://img.shields.io/travis/{repo}.svg',
+            'img': 'https://img.shields.io/travis/{repo}.svg',
             'url': 'https://travis-ci.org/{repo}',
             'alt': 'Continuous integration status for {repo}'
         }
@@ -90,7 +90,7 @@ class PythonPackage(Package):
     @badge
     def version(self):
         return {
-            'img': 'http://img.shields.io/pypi/v/{name}.svg',
+            'img': 'https://img.shields.io/pypi/v/{name}.svg',
             'url': 'https://warehouse.python.org/pypi/{name}/',
             'alt': 'Version for package {name} on PyPI'
         }
@@ -98,7 +98,7 @@ class PythonPackage(Package):
     @badge
     def licence(self):
         return {
-            'img': 'http://img.shields.io/pypi/l/{name}.svg',
+            'img': 'https://img.shields.io/pypi/l/{name}.svg',
             'url': 'https://warehouse.python.org/pypi/{name}/',
             'alt': 'Licence for package {name} on PyPI'
         }
@@ -109,13 +109,13 @@ class PythonPackage(Package):
             return {
                 # 'img': 'https://readthedocs.org/projects/{name}/badge/'
                 #        '?version=latest&style=flat-square',
-                'img': 'http://img.shields.io/badge/docs-latest-brightgreen.svg',
-                'url': 'http://{name}.readthedocs.org/en/latest/',
+                'img': 'https://img.shields.io/badge/docs-latest-brightgreen.svg',
+                'url': 'https://{name}.readthedocs.org/en/latest/',
                 'alt': 'Documentation for package {name} on Read The Docs'
             }
         else:
             return {
-                'img': 'http://img.shields.io/badge/docs-none-lightgrey.svg',
+                'img': 'https://img.shields.io/badge/docs-none-lightgrey.svg',
                 'url': '#',
                 'alt': 'No documentation availible for package {name}'
             }

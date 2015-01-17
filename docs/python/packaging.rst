@@ -74,9 +74,7 @@ It's often useful for the README file to include various badges describing the p
 .. _suggested tools: https://packaging.python.org/en/latest/current.html
 .. _project: https://packaging.python.org/en/latest/glossary.html#term-project
 .. _package: https://packaging.python.org/en/latest/glossary.html#term-import-package
-.. _semantic versioning specification: http://semver.org/spec/v2.0.0.html
 .. _classifiers: https://pypi.python.org/pypi?%3Aaction=list_classifiers
-.. _reStructuredText: http://docutils.sourceforge.net/rst.html
 .. _rst-lint: https://pypi.python.org/pypi/restructuredtext_lint
 .. _PyPI: https://pypi.python.org/pypi/
 .. _warehouse: https://warehouse.python.org/
@@ -84,3 +82,6 @@ It's often useful for the README file to include various badges describing the p
 .. _Read The Docs: https://readthedocs.org/
 .. _GitHub:  https://github.com/
 
+.. HTTPS not availible for these links
+.. _semantic versioning specification: http://semver.org/spec/v2.0.0.html
+.. _reStructuredText: https://docutils.sourceforge.net/rst.html
