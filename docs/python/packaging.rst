@@ -10,6 +10,7 @@ Notes on specific metadata items:
 
 - Version numbers should follow the `semantic versioning specification`_.
 - PyPI_ provides `a list of available package classifiers <classifiers_>`_.
+    - Python 3 only projects should use ``Programming Language :: Python :: 3 :: Only``.
 - Python projects should use the MIT License (see :doc:`/projects/index`).
 
 Packages that run on Python 2 and 3 should ensure they have a :file:`setup.cfg` file that configures ``bdist_wheel`` to mark the wheel as 'universal' (otherwise, the wheel will declare that it is only for the version of Python it was built on).
