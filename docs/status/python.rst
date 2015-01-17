@@ -1,6 +1,8 @@
 Python package status
 =====================
 
+These packages are actively maintained, though several are feature complete and have no plans for futher improvements. `Packages published by me on PyPI <https://warehouse.python.org/user/borntyping/>`_.
+
 .. package:: clack
 
 .. package:: colorlog

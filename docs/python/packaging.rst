@@ -9,7 +9,7 @@ The `Python Packaging User Guide`_ has excellent guidance on packaging Python pr
 Notes on specific metadata items:
 
 - Version numbers should follow the `semantic versioning specification`_.
-- PyPI provides `a list of available package classifiers <classifiers_>`_.
+- PyPI_ provides `a list of available package classifiers <classifiers_>`_.
 - Python projects should use the MIT License (see :doc:`/projects/index`).
 
 Packages that run on Python 2 and 3 should ensure they have a :file:`setup.cfg` file that configures ``bdist_wheel`` to mark the wheel as 'universal' (otherwise, the wheel will declare that it is only for the version of Python it was built on).
@@ -20,7 +20,7 @@ Packages that run on Python 2 and 3 should ensure they have a :file:`setup.cfg` 
 PyPi
 ----
 
-A new python package can be registered to PyPI with:
+A new python package can be registered to PyPI_ with:
 
 .. code-block:: bash
 
@@ -79,6 +79,7 @@ It's often useful for the README file to include various badges describing the p
 .. _reStructuredText: http://docutils.sourceforge.net/rst.html
 .. _rst-lint: https://pypi.python.org/pypi/restructuredtext_lint
 .. _PyPI: https://pypi.python.org/pypi/
+.. _warehouse: https://warehouse.python.org/
 .. _Travis-CI: https://travis-ci.org/
 .. _Read The Docs: https://readthedocs.org/
 .. _GitHub:  https://github.com/

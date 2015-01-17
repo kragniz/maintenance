@@ -91,7 +91,7 @@ class PythonPackage(Package):
     def version(self):
         return {
             'img': 'http://img.shields.io/pypi/v/{name}.svg',
-            'url': 'https://pypi.python.org/pypi/{name}',
+            'url': 'https://warehouse.python.org/pypi/{name}/',
             'alt': 'Version for package {name} on PyPI'
         }
 
@@ -99,7 +99,7 @@ class PythonPackage(Package):
     def licence(self):
         return {
             'img': 'http://img.shields.io/pypi/l/{name}.svg',
-            'url': 'https://pypi.python.org/pypi/{name}',
+            'url': 'https://warehouse.python.org/pypi/{name}/',
             'alt': 'Licence for package {name} on PyPI'
         }
 

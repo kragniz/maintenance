@@ -2,11 +2,11 @@ example
 =======
 
 .. image:: http://img.shields.io/pypi/v/example.svg?style=flat-square
-    :target: https://pypi.python.org/pypi/example
+    :target: https://warehouse.python.org/project/example/
     :alt: example on PyPI
 
 .. image:: http://img.shields.io/pypi/l/example.svg?style=flat-square
-    :target: https://pypi.python.org/pypi/example
+    :target: https://warehouse.python.org/project/example/
     :alt: example on PyPI
 
 .. image:: https://readthedocs.org/projects/example/badge/?version=latest&style=flat-square
@@ -27,5 +27,5 @@ Short description of the project.
 
 * `Source on GitHub <https://github.com/borntyping/example>`_
 * `Documentation on Read the Docs <http://example.readthedocs.org/en/latest/>`_
-* `Packages on PyPI <https://pypi.python.org/pypi/example>`_
+* `Packages on PyPI <https://warehouse.python.org/project/example/>`_
 * `Builds on Travis CI <https://travis-ci.org/borntyping/example>`_
