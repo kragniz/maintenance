@@ -14,7 +14,7 @@ A basic ``tox.ini`` file to use pytest should look like this:
 .. literalinclude:: examples/tox.ini
     :language: ini
     :emphasize-lines: 5-7
-    :end-before: [testenv:style]
+    :end-before: [testenv:lint]
 
 Configuring `Travis-CI`_ to run Tox_ properly is slightly verbose, but means local and remote tests run in an almost identical fashion. The ``.travis.yml`` file should include each tox environment in it's matrix (see the Configuration_ section below for a full example):
 
