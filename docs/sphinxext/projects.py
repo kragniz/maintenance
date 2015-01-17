@@ -53,6 +53,7 @@ class Project(object):
         self.options = options
         self.options.setdefault('repo', 'borntyping/{}'.format(name))
         self.options.setdefault('docs', None)
+        self.options.setdefault('chef', None)
 
     @link
     def github_repo(self):
@@ -108,6 +109,21 @@ class Project(object):
                 'alt': 'No documentation availible for package {name}'
             }
 
+    @badge
+    def chef_cookbook(self):
+        if self.options['chef'] is None:
+            return {
+                'img': 'https://img.shields.io/cookbook/v/{name}.svg',
+                'url': 'https://supermarket.chef.io/cookbooks/{name}',
+                'alt': '{name} cookbook on Chef Supermarket'
+            }
+        else:
+            return {
+                'img': 'https://img.shields.io/badge/cookbook-{chef}-red.svg',
+                'url': '#',
+                'alt': '{name} is not on Chef Supermarket'
+            }
+
 
 class ProjectStatusList(docutils.parsers.rst.Directive):
     """Exports a table of projects"""
@@ -117,25 +133,34 @@ class ProjectStatusList(docutils.parsers.rst.Directive):
 
     projects = []
 
-    @property
-    def project_type(self):
-        return self.arguments[0] if len(self.arguments) > 0 else 'default'
+    COLUMNS = {
+        'default': (
+            ('Project', 'github_repo'),
+            ('GitHub Issues', 'github_issues'),
+            ('CI status', 'travis_status')
+        ),
+        'cookbook': (
+            ('Project', 'github_repo'),
+            ('Version', 'chef_cookbook'),
+            ('GitHub Issues', 'github_issues'),
+            ('CI status', 'travis_status')
+        ),
+        'python': (
+            ('Package', 'github_repo'),
+            ('Version', 'pypi_version'),
+            ('GitHub Issues', 'github_issues'),
+            ('CI status', 'travis_status'),
+            ('Documentation', 'documentation')
+        )
+    }
 
     def columns(self):
-        return {
-            'default': (
-                ('Project', 'github_repo'),
-                ('GitHub Issues', 'github_issues'),
-                ('CI status', 'travis_status')
-            ),
-            'python': (
-                ('Package', 'github_repo'),
-                ('Version', 'pypi_version'),
-                ('GitHub Issues', 'github_issues'),
-                ('CI status', 'travis_status'),
-                ('Documentation', 'documentation')
-            )
-        }[self.project_type]
+        project_type = 'default'
+
+        if len(self.arguments) > 0 and self.arguments[0] in self.COLUMNS:
+            project_type = self.arguments[0]
+
+        return self.COLUMNS[project_type]
 
     def export_headers(self):
         return [k for k, v in self.columns()]
@@ -159,7 +184,8 @@ class ProjectDirective(docutils.parsers.rst.Directive):
     required_arguments = 1
     option_spec = {
         'repo': lambda x: x,
-        'docs': lambda x: x
+        'docs': lambda x: x,
+        'chef': lambda x: x
     }
 
     def run(self):

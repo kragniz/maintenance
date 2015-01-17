@@ -1,7 +1,7 @@
 Status
 ^^^^^^
 
-This page links to most of the open-source projects I have published and displays their current status.
+This page links to most of the open-source projects I have published and displays their current status. It should list all projects from `my github profile <borntyping_>`_, but projects from `borntyping-sandbox`_ are not listed.
 
 .. toctree::
 
@@ -43,6 +43,16 @@ These packages are no longer actively maintained and generally have better alter
 .. project:: spotter
 .. project-status:: python
 
+Chef cookbooks
+==============
+
+.. project:: alternate_search
+    :repo: borntyping/cookbook-alternate_search
+.. project:: ruby
+    :repo: borntyping/cookbook-ruby
+    :chef: none
+.. project-status:: cookbook
+
 Personal projects
 =================
 
@@ -53,10 +63,19 @@ These projects are published under open-source licences, but are primarily for m
 .. project:: borntyping.github.io
 .. project-status::
 
-Chef cookbooks and projects
-===========================
+Deprecated projects
+===================
 
-.. project:: cookbook-alternate_search
-.. project:: cookbook-ruby
-.. project:: sous-chef
+These projects are very old, but I can't bring myself to get rid of them. *None of them are supported or maintained in any way. Most of the code is awful.
+
+.. project:: chef-ladder
+.. project:: this-is-a-game
+.. project:: nus
+.. project:: django-kaos
+.. project:: django-kaos-avatar
+.. project:: enginesheddata
 .. project-status::
+
+.. _borntyping: https://github.com/borntyping
+.. _borntyping-sandbox: https://github.com/borntyping-sandbox
+
