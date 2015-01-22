@@ -28,9 +28,6 @@ Tag release
 Package upload
     ``tox -e release`` or ``python setup.py sdist bdist_wheel upload``
 
-.. |git-tag-version| replace:: ``git-tag-version``
-.. _git-tag-version: https://github.com/borntyping/deployment/blob/master/roles/base/files/git-tag-version
-
 Documenation
 ------------
 
@@ -39,3 +36,5 @@ Build Sphinx documenation
 
 Open Sphinx documenation
     ``xdg-open docs/_build/index.html``
+
+.. include:: ../references.rst
