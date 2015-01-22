@@ -151,6 +151,9 @@ class ProjectStatusList(docutils.parsers.rst.Directive):
             ('GitHub Issues', 'github_issues'),
             ('CI status', 'travis_status'),
             ('Documentation', 'documentation')
+        ),
+        'deprecated': (
+            ('Package', 'github_repo'),
         )
     }
 

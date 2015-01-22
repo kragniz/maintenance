@@ -5,7 +5,7 @@ import os
 
 # Enable custom extensions
 sys.path.append(os.path.abspath('sphinxext'))
-extensions = ['projects']
+extensions = ['status']
 
 # Use the Read The Docs theme when building offline
 if not os.environ.get('READTHEDOCS', None):
@@ -22,7 +22,7 @@ def setup(app):
 
 # General configuration
 master_doc = 'index'
-exclude_patterns = ['_build', '*/examples/*']
+exclude_patterns = ['_build', '*/examples/*', 'references.rst']
 
 # Project information
 project = u'Maintenance'

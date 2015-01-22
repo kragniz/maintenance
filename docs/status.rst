@@ -74,7 +74,7 @@ These projects are very old, but I can't bring myself to get rid of them. *None 
 .. project:: django-kaos
 .. project:: django-kaos-avatar
 .. project:: enginesheddata
-.. project-status::
+.. project-status:: deprecated
 
 .. _borntyping: https://github.com/borntyping
 .. _borntyping-sandbox: https://github.com/borntyping-sandbox
