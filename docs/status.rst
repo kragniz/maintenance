@@ -53,6 +53,15 @@ Chef cookbooks
     :chef: none
 .. project-status:: cookbook
 
+Rust packages
+=============
+
+Rust packages are currently only used for my final year university project, and are not really supported or ready yet.
+
+.. project:: psutil
+    :repo: borntyping/rust-psutil
+.. project-status:: rust
+
 Personal projects
 =================
 
