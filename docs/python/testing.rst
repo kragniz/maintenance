@@ -46,7 +46,7 @@ A full Tox_ configuration file for a standard python package should run tests on
 .. literalinclude:: examples/tox.ini
     :language: ini
 
-`Travis-CI`_ should be configured to run all environments (excluding releasing the package), though style and documentation environments should be allowed to fail. Including ``sudo: true`` will use `Travis-CI's container based build system <http://docs.travis-ci.com/user/workers/container-based-infrastructure/>`_.
+`Travis-CI`_ should be configured to run all environments (excluding releasing the package), though style and documentation environments should be allowed to fail. Including ``sudo: false`` will use `Travis-CI's container based build system <http://docs.travis-ci.com/user/workers/container-based-infrastructure/>`_.
 
 .. literalinclude:: examples/travis.yml
     :language: yaml
